@@ -6,15 +6,16 @@
     <style>
         body{
             font-family: 'Open Sans';
-            background-color: #000000;
+            background-color: black;
             color: white;
+            transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi màu */
         }
         .text1{
             font-size:18px;
             line-height: 32px;
             font-weight: 600;
             text-decoration: none;
-            color: white;
+            color: inherit;
         }
         .text1:hover{
             color: #979797;
@@ -56,7 +57,7 @@
             flex-direction: row;
             column-gap: 41px ;
             justify-content: center;
-            align-items: center;        
+            align-items: center;      
         }
         .text2{
             font-size:68px;
@@ -84,49 +85,41 @@
             flex-direction: column;
             align-items: center;
             row-gap: 20px;
+            margin: 0 100px 0 100px;
         }
         .table1{
-            width: 600px;
-            height: 400px;
-            background-image: linear-gradient(to bottom,#000000,#371E72);
+            width: 428px;
+            height: 428px;
+            background-color: white;
             position: relative;
-            border-radius: 24px;
             font-size: 52px;
             line-height: 68px;
-            color: white;
+            color: black;
         }
         .table1:hover{
             transition: transform 0.5s ease;
             transform: scale(1.05);
-            background-image: url("https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnM1d2FlZ3ZveDk2YWx4ZTdwYnhndGtnc2oydDdzdHRmbjB1bmI5ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/4aEBvj5IGRSYBwn3FQ/giphy.gif");
-            background-size: cover;
-            background-repeat: no-repeat
         }
         .table2{
             width: 800px;
-            height: 400px;
-            background-image: linear-gradient(to bottom,#479079,#87DBCD);
-            border-radius: 24px;
+            height: 428px;
+            background-color: white;
             font-size: 52px;
             line-height: 68px;
-            font-weight: bold;
+            font-weight: 800;
             position: relative;
         }
         .table2:hover{
             transition: transform 0.5s ease;
             transform: scale(1.05);
-            background-image: url("https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXVhZzMwOHl0eGg0MTAyaGVpYm84YmVkNnU4NXI0ZGQybXdvOWxmbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Hh9sPYeSWhAUx6NDBM/giphy.gif");
-            background-size: cover;
-            background-repeat: no-repeat;
         }
         .table3{
-            width: 1420px;
-            height: 500px;
-            background-image: linear-gradient(to bottom,#0000,#313131);
-            border-radius: 24px;
+            width: 1248px;
+            height: 428px;
+            background-color: white;
             font-size: 52px;
             line-height: 68px;
-            font-weight: bold;
+            font-weight: 800;
             position: relative;
             overflow: hidden;
             margin-bottom: 20px;
@@ -134,13 +127,97 @@
         .table3:hover{
             transition: transform 0.5s ease;
             transform: scale(1.05);
-            background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGdxeTh5Z2FoejhuNHhzNTRvaGdhOWk2emJ2MnpsZ20zMXJvdXpmNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xThuWt89yRv9xkJyco/giphy.gif");
-            background-size: cover;
-            background-repeat: no-repeat
         }
         .half-colored{
-            color: #FFD85E;
-            font-weight: 600;
+            color: #AFAFAF;
+            font-weight: 800;
+        }
+        .end{
+            background-color: #15B097;
+            height: 500px;
+            margin: 0 100px 64px 100px;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            font-size: 24px;
+            line-height: 36px;
+        }
+        .text6{
+            font-size: 16px;
+            line-height: 32px;
+            font-weight: bold;
+        }
+        .footer{
+            margin: 0 100px 0 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: end;
+        }
+        .text5{
+            font-size: 14px;
+            line-height: 32px;
+            font-weight: bold;
+            color: #AFAFAF;
+        }
+        .rightfooter{
+            display: flex;
+            flex-direction: row;
+           column-gap: 50px;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .toggle-container {
+            height: 100vh;
+        }
+
+        .toggle-input {
+            display: none; /* Ẩn input checkbox */
+        }
+
+        .toggle-label {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: #EEEEEE; /* Màu nền của toggle */
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-label::before {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background-color: #15B097; /* Màu của nút tròn */
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle-input:checked + .toggle-label {
+            background-color: #E6FF94; /* Màu nền của toggle khi được chọn */
+        }
+
+        .toggle-input:checked + .toggle-label::before {
+            transform: translateX(30px); /* Di chuyển nút tròn sang phải khi toggle được chọn */
+        }
+        .button-toggle{
+        display: inline-block;
+        position: fixed;
+        top: auto;
+        bottom: 0%;
+        left: 0%;
+        right: auto;
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
@@ -160,7 +237,7 @@
     <script src="script.js"></script>
     <div class="Nav">
         <div class="left1">
-            <img src="person.png" alt="" width="64px"/>
+            <img src="person2.png" alt="" width="64px"/>
         </div>
         <div class="right1">
             <div class="text1" onclick="goToNextPage()">About</div>
@@ -179,25 +256,62 @@
     <div class="table">
         <div style="display: flex;flex-direction: row;column-gap: 20px;">
             <div class="table1">
-                <img src="Image1.png" alt="" style="width: 380px;position: absolute;top: -3%;left: 32%;"/>
-                <img src="logo1.png" alt="" style="width: 50px;position: absolute;top: 8%;right: 85%;"/>
-                <div style="position: absolute;top: 80%;left:8%;"><span class="half-colored">Night</span>ie</div>
+                <img src="logo1.png" alt="" style="width: 280px;position: absolute;top: 19%;right: 18%;"/>
+                <img src="Image1.png" alt="" style="width: 240px;position: absolute;top: 16%;left: 19%;"/>
+                <div style="position: absolute;top: 82%;left:8%;"><span class="half-colored">Night</span>ie</div>
                 </div>
                 <div class="table2">
-                <img src="Image2.png" alt="" style="width: 540px;position: absolute;top: 1%;left: 32%;"/>
-                <img src="logo2.png" alt="" style="width: 150px;position: absolute;top: 8%;right: 74%;"/>
-                <div style="position: absolute;top: 80%;left:8%;color: transparent;
-                background: linear-gradient(to bottom, #479079, #167D7F);
-                background-clip: text;
+                <img src="logo2.png" alt="" style="width: 390px;position: absolute;top: 20%;right: 28%;"/>
+                <img src="Image2.png" alt="" style="width: 390px;position: absolute;top: 16%;left: 23%;"/>
+                <div style="position: absolute;top: 82%;left:4%;color:#AFAFAF ;
                 ">Trippal</div>
             </div>
         </div>
         <div class="table3">
-            <img src="logoo.png" alt="" style="width: 664px;position: absolute;top: -3%;right: 2%;"/>
-            <img src="image3.png" alt="" style="width: 700px;position: absolute;top: -3%;left: 50%;"/>
-            <img src="logo3.png" alt="" style="width: 800px;position: absolute;top: 40%;right: 39%;"/>
-            <img src="orange half.png" alt="" style="width: 300px;position: absolute;top: 47%;right: 79%;"/>  
+            <img src="logo3.png" alt="" style="width: 800px;position: absolute;top: 35%;right: 17%;"/> 
+            <img src="image3.png" alt="" style="width: 600px;position: absolute;top: -3%;left: 28%;"/>
+            <div style="position: absolute;top: 82%;left:3%;color:#AFAFAF ;
+                ">Orangebank</div>
+
         </div>
     </div>
+    <div class="end">
+        <div >
+            <div style="margin-bottom: 20px;">My portfolio will continue to grow with new and <br/> improved products designed to meet the <br/>highest standards.</div>
+            <div>Thank you for watching !</div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="text6">ⓒ 2024 Thanh Nguyen Portfolio</div>
+        <div class="rightfooter">
+            <div>
+                <div class="text5">Mail</div>
+                <div class="text6" style="font-weight: 600;">thanhthanh2718@gmail.com</div>
+            </div>
+            <div>
+                <div class="text5">Phone number</div>
+                <div class="text6" style="font-weight: 600;">+84 332 528 555</div>
+            </div>
+        </div>
+    </div>
+    <div class="button-toggle">
+        <div class="toggle-container">
+            <input type="checkbox" id="toggle" class="toggle-input" onclick="toggleColors()">
+        <label for="toggle" class="toggle-label"></label>
+        </div>
+      </div>
+      <script>
+        function toggleColors() {
+                const body = document.body;
+                const isChecked = document.getElementById('toggle').checked;
+                if (isChecked) {
+                    body.style.backgroundColor = 'white';
+                    body.style.color = 'black';
+                } else {
+                    body.style.backgroundColor = 'black';
+                    body.style.color = 'white';
+                }
+            }
+    </script>
 </body>
 </html>
